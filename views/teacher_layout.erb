@@ -1,0 +1,67 @@
+<html>
+	<head>
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/css/site.css">
+	</head>
+	<body class="teacher">
+		<%= yield %>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="/js/annotator.js"></script>
+	<script>
+		$(document).ready(function(){
+			var content = $("article").annotator();
+			var me = {
+				name: 'Duncan Smith',
+				avatar: 'http://duncanmsmith.com/me.png'
+			}
+      var notes = parseStorage() || [];
+
+      localStorage.commentCount = localStorage.commentCount || 0;
+
+      function parseStorage () {
+        var names = Object.getOwnPropertyNames(localStorage);
+        var notes = [];
+
+        $.each(names, function(index, value) {
+          if (value.indexOf("ct-") > -1) {
+            notes.push(localStorage[value]);
+          }
+        })
+
+        notes = $.map(notes, function(item, index){
+          return JSON.parse(item);
+        })
+        return notes;
+      }
+
+      function updateStorage (note) {
+        var propName = "ct-" + localStorage.commentCount++;
+        localStorage[propName] = JSON.stringify(note);
+      }
+
+      
+      
+
+			Annotator.Plugin.StoreLogger = function (element) {
+			  return {
+			    pluginInit: function () {
+			      this.annotator
+			        .subscribe("annotationCreated", function (annotation) {
+  			        var newNote = {
+                  author: me,
+                  quote: annotation.quote,
+                  comment: annotation.text
+                }
+                updateStorage(newNote);
+			      });
+			    }
+			  }
+			};
+
+			content.annotator('addPlugin', 'StoreLogger');
+		});
+
+		
+	</script>
+	</body>
+</html>

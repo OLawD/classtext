@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Classes</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <% @classes.each do |klass| %>
+    <a href="/class/<%= klass[:id] %>">
+      <div class="klass">
+        <h2 class="title"><%= klass[:name] %></h2>
+      </div>
+    </a>
+  <% end %>
+  </div>
+</div>

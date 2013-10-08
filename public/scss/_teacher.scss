@@ -1,0 +1,41 @@
+body.teacher {
+	.klass {
+		background-color: $primary;
+    border: 1px solid darken(#3399ff,10%);
+    height: 200px;
+    width: 200px;
+    padding: 15px;
+    h2 {
+      font-size: 24px;
+      color: #fff;
+      font-family: $main-font;
+      font-weight: 300;
+    }
+	}
+
+  .student {
+    width: 150px;
+    min-height: 150px;
+    background-color: transparent;
+    border: 1px solid #bbb;
+    padding: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px;
+  }
+
+  .work {
+    p {
+      margin: 0;
+    }
+    .title {
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 100%;
+    }
+    .author {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  }
+}

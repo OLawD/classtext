@@ -1,0 +1,40 @@
+<div class="row large-12 columns">
+  <h1><%= @class[:name] %></h1>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+   <h2>Students</h2>
+    <% @students.each do |student| %>
+      <div class="student">
+        <p><strong><%= student[:name] %></strong></p>
+        <p>Grade: <em><%= student[:grade] %></em></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- works -->
+
+
+<% @works.each do |work| %>
+  <div class="row work">
+    <hr>
+    <div class="large-3 columns">
+      <img src="http://placehold.it/100x150.jpg&text=Cover" alt="">
+    </div>
+    <div class="large-5 columns">
+      <p class="title"><%= work[:document] %></p>
+      <p class="author"><strong>By:</strong> <em>Dante Alighieri</em></p>
+    </div>
+    <div class="large-4 columns">
+      <ul>
+        <li><a href="/assignment/1">An assignment</a></li>
+        <li><a href="/assignment/1">An assignment</a></li>
+        <li><a href="/assignment/1">An assignment</a></li>
+        <li><a href="/assignment/1">An assignment</a></li>
+        <li><a href="/assignment/1">An assignment</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

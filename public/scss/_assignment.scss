@@ -1,0 +1,15 @@
+.assignment {
+	.description {
+		font-size: 18px;
+	}
+	article {
+		margin-bottom: 100px;
+		background-color: #ffe;
+		box-shadow: 1px 1px 5px #000;
+		line-height: 170%;
+		font-size: 24px;
+		font-family: $main-font;
+		font-weight: 300;
+		padding: 20px;
+	}
+}
